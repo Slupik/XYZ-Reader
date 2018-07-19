@@ -13,6 +13,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.content.Loader;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
@@ -43,7 +44,7 @@ public class ArticleDetailFragment extends Fragment implements
     private static final String TAG = "ArticleDetailFragment";
 
     public static final String ARG_ITEM_ID = "item_id";
-    private static final float PARALLAX_FACTOR = 1.25f;
+    private static final float PARALLAX_FACTOR = 1.5f;
 
     private Cursor mCursor;
     private long mItemId;
@@ -128,7 +129,6 @@ public class ArticleDetailFragment extends Fragment implements
             @Override
             public void onScrollChanged() {
                 mScrollY = mScrollView.getScrollY();
-                getActivityCast().onUpButtonFloorChanged(mItemId, ArticleDetailFragment.this);
                 mPhotoContainerView.setTranslationY((int) (mScrollY - mScrollY / PARALLAX_FACTOR));
                 updateStatusBar();
             }
@@ -151,7 +151,19 @@ public class ArticleDetailFragment extends Fragment implements
 
         bindViews();
         updateStatusBar();
+        setupActionBar(mRootView);
+
         return mRootView;
+    }
+
+    private void setupActionBar(View mRootView) {
+        Toolbar toolbar = mRootView.findViewById(R.id.toolbar_container);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivityCast().onSupportNavigateUp();
+            }
+        });
     }
 
     private void updateStatusBar() {
