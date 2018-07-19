@@ -12,23 +12,22 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_container"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:layout_marginLeft="@dimen/list_toolbar_side_margin"
-            android:layout_marginRight="@dimen/list_toolbar_side_margin"
-            android:paddingBottom="8dp"
-            android:paddingTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/list_toolbar_side_margin"
+            android:layout_marginRight="@dimen/list_toolbar_side_margin"
             android:background="@color/color_primary"
             android:elevation="4dp"
-            app:navigationIcon="?attr/homeAsUpIndicator">
+            android:paddingBottom="8dp"
+            android:paddingTop="32dp"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo"
-                android:contentDescription="@string/app_name" />
-
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/logo" />
         </android.support.v7.widget.Toolbar>
 
         <com.example.xyzreader.ui.ObservableScrollView
@@ -51,25 +50,23 @@
                     <ImageView
                         android:id="@+id/photo"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scaleType="centerInside"/>
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/photo_background_protection"/>
-
+                        android:background="@drawable/photo_background_protection" />
                 </FrameLayout>
 
                 <com.example.xyzreader.ui.MaxWidthLinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:maxWidth="@dimen/detail_card_max_width"
                     android:background="#fff"
                     android:elevation="2dp"
-                    >
+                    android:maxWidth="@dimen/detail_card_max_width"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/meta_bar"
@@ -94,14 +91,14 @@
                             android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
                             android:textColor="#fff"
                             android:textSize="@dimen/detail_title_text_size"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/article_byline"
                             style="?android:attr/textAppearanceSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#8fff"/>
+                            android:textColor="#8fff" />
                     </LinearLayout>
 
                     <TextView
@@ -116,23 +113,21 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@android:color/black"
                         android:textColorLink="@color/color_accent"
-                        tools:text="For starters, let me try to summarize the lessons and intuitions."/>
-
+                        tools:text="For starters, let me try to summarize the lessons and intuitions." />
                 </com.example.xyzreader.ui.MaxWidthLinearLayout>
             </LinearLayout>
         </com.example.xyzreader.ui.ObservableScrollView>
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/share_fab"
-        app:fabSize="normal"
         android:layout_gravity="bottom|end"
-        android:elevation="@dimen/fab_elevation"
-        android:contentDescription="@string/action_share"
-        android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
-        android:src="@drawable/ic_share"/>
-
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:contentDescription="@string/action_share"
+        android:elevation="@dimen/fab_elevation"
+        android:src="@drawable/ic_share"
+        app:fabSize="normal" />
 </com.example.xyzreader.ui.DrawInsetsFrameLayout>
