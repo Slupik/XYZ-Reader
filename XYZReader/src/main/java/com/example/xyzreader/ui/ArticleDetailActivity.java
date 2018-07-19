@@ -105,6 +105,9 @@ public class ArticleDetailActivity extends AppCompatActivity
                 mSelectedItemId = mStartId;
             }
         }
+
+
+        mUpButtonContainer.setVisibility(View.INVISIBLE);
     }
 
     @Override
